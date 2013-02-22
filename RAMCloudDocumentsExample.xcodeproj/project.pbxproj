@@ -1,0 +1,483 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5B9C604A16D7FABA005A0E8C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9C604916D7FABA005A0E8C /* UIKit.framework */; };
+		5B9C604C16D7FABA005A0E8C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9C604B16D7FABA005A0E8C /* Foundation.framework */; };
+		5B9C604E16D7FABA005A0E8C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9C604D16D7FABA005A0E8C /* CoreGraphics.framework */; };
+		5B9C605416D7FABA005A0E8C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5B9C605216D7FABA005A0E8C /* InfoPlist.strings */; };
+		5B9C605616D7FABA005A0E8C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9C605516D7FABA005A0E8C /* main.m */; };
+		5B9C605A16D7FABA005A0E8C /* RAMCloudDocumentsExampleAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9C605916D7FABA005A0E8C /* RAMCloudDocumentsExampleAppDelegate.m */; };
+		5B9C605C16D7FABA005A0E8C /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B9C605B16D7FABA005A0E8C /* Default.png */; };
+		5B9C605E16D7FABA005A0E8C /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B9C605D16D7FABA005A0E8C /* Default@2x.png */; };
+		5B9C606016D7FABA005A0E8C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B9C605F16D7FABA005A0E8C /* Default-568h@2x.png */; };
+		5B9C606316D7FABA005A0E8C /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B9C606116D7FABA005A0E8C /* MainStoryboard_iPhone.storyboard */; };
+		5B9C606616D7FABA005A0E8C /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B9C606416D7FABA005A0E8C /* MainStoryboard_iPad.storyboard */; };
+		5B9C606916D7FABA005A0E8C /* RAMCloudDocumentsExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9C606816D7FABA005A0E8C /* RAMCloudDocumentsExampleViewController.m */; };
+		5B9C607116D7FABA005A0E8C /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9C607016D7FABA005A0E8C /* SenTestingKit.framework */; };
+		5B9C607216D7FABA005A0E8C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9C604916D7FABA005A0E8C /* UIKit.framework */; };
+		5B9C607316D7FABA005A0E8C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9C604B16D7FABA005A0E8C /* Foundation.framework */; };
+		5B9C607B16D7FABA005A0E8C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5B9C607916D7FABA005A0E8C /* InfoPlist.strings */; };
+		5B9C607E16D7FABA005A0E8C /* RAMCloudDocumentsExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9C607D16D7FABA005A0E8C /* RAMCloudDocumentsExampleTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5B9C607416D7FABA005A0E8C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5B9C603E16D7FABA005A0E8C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5B9C604516D7FABA005A0E8C;
+			remoteInfo = RAMCloudDocumentsExample;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5B9C604616D7FABA005A0E8C /* RAMCloudDocumentsExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RAMCloudDocumentsExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B9C604916D7FABA005A0E8C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		5B9C604B16D7FABA005A0E8C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		5B9C604D16D7FABA005A0E8C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		5B9C605116D7FABA005A0E8C /* RAMCloudDocumentsExample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RAMCloudDocumentsExample-Info.plist"; sourceTree = "<group>"; };
+		5B9C605316D7FABA005A0E8C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5B9C605516D7FABA005A0E8C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5B9C605716D7FABA005A0E8C /* RAMCloudDocumentsExample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RAMCloudDocumentsExample-Prefix.pch"; sourceTree = "<group>"; };
+		5B9C605816D7FABA005A0E8C /* RAMCloudDocumentsExampleAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RAMCloudDocumentsExampleAppDelegate.h; sourceTree = "<group>"; };
+		5B9C605916D7FABA005A0E8C /* RAMCloudDocumentsExampleAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RAMCloudDocumentsExampleAppDelegate.m; sourceTree = "<group>"; };
+		5B9C605B16D7FABA005A0E8C /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		5B9C605D16D7FABA005A0E8C /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		5B9C605F16D7FABA005A0E8C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		5B9C606216D7FABA005A0E8C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		5B9C606516D7FABA005A0E8C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		5B9C606716D7FABA005A0E8C /* RAMCloudDocumentsExampleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RAMCloudDocumentsExampleViewController.h; sourceTree = "<group>"; };
+		5B9C606816D7FABA005A0E8C /* RAMCloudDocumentsExampleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RAMCloudDocumentsExampleViewController.m; sourceTree = "<group>"; };
+		5B9C606F16D7FABA005A0E8C /* RAMCloudDocumentsExampleTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RAMCloudDocumentsExampleTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B9C607016D7FABA005A0E8C /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		5B9C607816D7FABA005A0E8C /* RAMCloudDocumentsExampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RAMCloudDocumentsExampleTests-Info.plist"; sourceTree = "<group>"; };
+		5B9C607A16D7FABA005A0E8C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5B9C607C16D7FABA005A0E8C /* RAMCloudDocumentsExampleTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RAMCloudDocumentsExampleTests.h; sourceTree = "<group>"; };
+		5B9C607D16D7FABA005A0E8C /* RAMCloudDocumentsExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RAMCloudDocumentsExampleTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5B9C604316D7FABA005A0E8C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B9C604A16D7FABA005A0E8C /* UIKit.framework in Frameworks */,
+				5B9C604C16D7FABA005A0E8C /* Foundation.framework in Frameworks */,
+				5B9C604E16D7FABA005A0E8C /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B9C606B16D7FABA005A0E8C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B9C607116D7FABA005A0E8C /* SenTestingKit.framework in Frameworks */,
+				5B9C607216D7FABA005A0E8C /* UIKit.framework in Frameworks */,
+				5B9C607316D7FABA005A0E8C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5B9C603D16D7FABA005A0E8C = {
+			isa = PBXGroup;
+			children = (
+				5B9C604F16D7FABA005A0E8C /* RAMCloudDocumentsExample */,
+				5B9C607616D7FABA005A0E8C /* RAMCloudDocumentsExampleTests */,
+				5B9C604816D7FABA005A0E8C /* Frameworks */,
+				5B9C604716D7FABA005A0E8C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5B9C604716D7FABA005A0E8C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5B9C604616D7FABA005A0E8C /* RAMCloudDocumentsExample.app */,
+				5B9C606F16D7FABA005A0E8C /* RAMCloudDocumentsExampleTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5B9C604816D7FABA005A0E8C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5B9C604916D7FABA005A0E8C /* UIKit.framework */,
+				5B9C604B16D7FABA005A0E8C /* Foundation.framework */,
+				5B9C604D16D7FABA005A0E8C /* CoreGraphics.framework */,
+				5B9C607016D7FABA005A0E8C /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5B9C604F16D7FABA005A0E8C /* RAMCloudDocumentsExample */ = {
+			isa = PBXGroup;
+			children = (
+				5B9C605816D7FABA005A0E8C /* RAMCloudDocumentsExampleAppDelegate.h */,
+				5B9C605916D7FABA005A0E8C /* RAMCloudDocumentsExampleAppDelegate.m */,
+				5B9C606116D7FABA005A0E8C /* MainStoryboard_iPhone.storyboard */,
+				5B9C606416D7FABA005A0E8C /* MainStoryboard_iPad.storyboard */,
+				5B9C606716D7FABA005A0E8C /* RAMCloudDocumentsExampleViewController.h */,
+				5B9C606816D7FABA005A0E8C /* RAMCloudDocumentsExampleViewController.m */,
+				5B9C605016D7FABA005A0E8C /* Supporting Files */,
+			);
+			path = RAMCloudDocumentsExample;
+			sourceTree = "<group>";
+		};
+		5B9C605016D7FABA005A0E8C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5B9C605116D7FABA005A0E8C /* RAMCloudDocumentsExample-Info.plist */,
+				5B9C605216D7FABA005A0E8C /* InfoPlist.strings */,
+				5B9C605516D7FABA005A0E8C /* main.m */,
+				5B9C605716D7FABA005A0E8C /* RAMCloudDocumentsExample-Prefix.pch */,
+				5B9C605B16D7FABA005A0E8C /* Default.png */,
+				5B9C605D16D7FABA005A0E8C /* Default@2x.png */,
+				5B9C605F16D7FABA005A0E8C /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5B9C607616D7FABA005A0E8C /* RAMCloudDocumentsExampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				5B9C607C16D7FABA005A0E8C /* RAMCloudDocumentsExampleTests.h */,
+				5B9C607D16D7FABA005A0E8C /* RAMCloudDocumentsExampleTests.m */,
+				5B9C607716D7FABA005A0E8C /* Supporting Files */,
+			);
+			path = RAMCloudDocumentsExampleTests;
+			sourceTree = "<group>";
+		};
+		5B9C607716D7FABA005A0E8C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5B9C607816D7FABA005A0E8C /* RAMCloudDocumentsExampleTests-Info.plist */,
+				5B9C607916D7FABA005A0E8C /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5B9C604516D7FABA005A0E8C /* RAMCloudDocumentsExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5B9C608116D7FABA005A0E8C /* Build configuration list for PBXNativeTarget "RAMCloudDocumentsExample" */;
+			buildPhases = (
+				5B9C604216D7FABA005A0E8C /* Sources */,
+				5B9C604316D7FABA005A0E8C /* Frameworks */,
+				5B9C604416D7FABA005A0E8C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RAMCloudDocumentsExample;
+			productName = RAMCloudDocumentsExample;
+			productReference = 5B9C604616D7FABA005A0E8C /* RAMCloudDocumentsExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5B9C606E16D7FABA005A0E8C /* RAMCloudDocumentsExampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5B9C608416D7FABA005A0E8C /* Build configuration list for PBXNativeTarget "RAMCloudDocumentsExampleTests" */;
+			buildPhases = (
+				5B9C606A16D7FABA005A0E8C /* Sources */,
+				5B9C606B16D7FABA005A0E8C /* Frameworks */,
+				5B9C606C16D7FABA005A0E8C /* Resources */,
+				5B9C606D16D7FABA005A0E8C /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5B9C607516D7FABA005A0E8C /* PBXTargetDependency */,
+			);
+			name = RAMCloudDocumentsExampleTests;
+			productName = RAMCloudDocumentsExampleTests;
+			productReference = 5B9C606F16D7FABA005A0E8C /* RAMCloudDocumentsExampleTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5B9C603E16D7FABA005A0E8C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = RAMCloudDocumentsExample;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = bNapkin;
+			};
+			buildConfigurationList = 5B9C604116D7FABA005A0E8C /* Build configuration list for PBXProject "RAMCloudDocumentsExample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5B9C603D16D7FABA005A0E8C;
+			productRefGroup = 5B9C604716D7FABA005A0E8C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5B9C604516D7FABA005A0E8C /* RAMCloudDocumentsExample */,
+				5B9C606E16D7FABA005A0E8C /* RAMCloudDocumentsExampleTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5B9C604416D7FABA005A0E8C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B9C605416D7FABA005A0E8C /* InfoPlist.strings in Resources */,
+				5B9C605C16D7FABA005A0E8C /* Default.png in Resources */,
+				5B9C605E16D7FABA005A0E8C /* Default@2x.png in Resources */,
+				5B9C606016D7FABA005A0E8C /* Default-568h@2x.png in Resources */,
+				5B9C606316D7FABA005A0E8C /* MainStoryboard_iPhone.storyboard in Resources */,
+				5B9C606616D7FABA005A0E8C /* MainStoryboard_iPad.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B9C606C16D7FABA005A0E8C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B9C607B16D7FABA005A0E8C /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5B9C606D16D7FABA005A0E8C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5B9C604216D7FABA005A0E8C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B9C605616D7FABA005A0E8C /* main.m in Sources */,
+				5B9C605A16D7FABA005A0E8C /* RAMCloudDocumentsExampleAppDelegate.m in Sources */,
+				5B9C606916D7FABA005A0E8C /* RAMCloudDocumentsExampleViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B9C606A16D7FABA005A0E8C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B9C607E16D7FABA005A0E8C /* RAMCloudDocumentsExampleTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5B9C607516D7FABA005A0E8C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5B9C604516D7FABA005A0E8C /* RAMCloudDocumentsExample */;
+			targetProxy = 5B9C607416D7FABA005A0E8C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5B9C605216D7FABA005A0E8C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B9C605316D7FABA005A0E8C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		5B9C606116D7FABA005A0E8C /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B9C606216D7FABA005A0E8C /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		5B9C606416D7FABA005A0E8C /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B9C606516D7FABA005A0E8C /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		5B9C607916D7FABA005A0E8C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B9C607A16D7FABA005A0E8C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5B9C607F16D7FABA005A0E8C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5B9C608016D7FABA005A0E8C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5B9C608216D7FABA005A0E8C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RAMCloudDocumentsExample/RAMCloudDocumentsExample-Prefix.pch";
+				INFOPLIST_FILE = "RAMCloudDocumentsExample/RAMCloudDocumentsExample-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		5B9C608316D7FABA005A0E8C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RAMCloudDocumentsExample/RAMCloudDocumentsExample-Prefix.pch";
+				INFOPLIST_FILE = "RAMCloudDocumentsExample/RAMCloudDocumentsExample-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		5B9C608516D7FABA005A0E8C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/RAMCloudDocumentsExample.app/RAMCloudDocumentsExample";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RAMCloudDocumentsExample/RAMCloudDocumentsExample-Prefix.pch";
+				INFOPLIST_FILE = "RAMCloudDocumentsExampleTests/RAMCloudDocumentsExampleTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		5B9C608616D7FABA005A0E8C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/RAMCloudDocumentsExample.app/RAMCloudDocumentsExample";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RAMCloudDocumentsExample/RAMCloudDocumentsExample-Prefix.pch";
+				INFOPLIST_FILE = "RAMCloudDocumentsExampleTests/RAMCloudDocumentsExampleTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5B9C604116D7FABA005A0E8C /* Build configuration list for PBXProject "RAMCloudDocumentsExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B9C607F16D7FABA005A0E8C /* Debug */,
+				5B9C608016D7FABA005A0E8C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5B9C608116D7FABA005A0E8C /* Build configuration list for PBXNativeTarget "RAMCloudDocumentsExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B9C608216D7FABA005A0E8C /* Debug */,
+				5B9C608316D7FABA005A0E8C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		5B9C608416D7FABA005A0E8C /* Build configuration list for PBXNativeTarget "RAMCloudDocumentsExampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B9C608516D7FABA005A0E8C /* Debug */,
+				5B9C608616D7FABA005A0E8C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5B9C603E16D7FABA005A0E8C /* Project object */;
+}
