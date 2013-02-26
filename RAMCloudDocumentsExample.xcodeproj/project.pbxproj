@@ -1,1206 +1,589 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>archiveVersion</key>
-	<string>1</string>
-	<key>classes</key>
-	<dict/>
-	<key>objectVersion</key>
-	<string>46</string>
-	<key>objects</key>
-	<dict>
-		<key>0FAF99CED7284938A1FB16AE</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Warn for TODO and FIXME comments</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>KEYWORDS="TODO:|FIXME:|\?\?\?:|\!\!\!:"
-find "${SRCROOT}" -ipath "${SRCROOT}/pods" -prune -o \( -name "*.h" -or -name "*.m" \) -print0 | xargs -0 egrep --with-filename --line-number --only-matching "($KEYWORDS).*\$" | perl -p -e "s/($KEYWORDS)/ warning: \$1/"
-</string>
-		</dict>
-		<key>225CAB2576944BB4A66DFD99</key>
-		<dict>
-			<key>fileRef</key>
-			<string>7122029A09D54CBD9CE7032A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict/>
-		</dict>
-		<key>5B9C603D16D7FABA005A0E8C</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>5B9C604F16D7FABA005A0E8C</string>
-				<string>5B9C607616D7FABA005A0E8C</string>
-				<string>5B9C604816D7FABA005A0E8C</string>
-				<string>5B9C604716D7FABA005A0E8C</string>
-				<string>E5216C293AFC4B30A3147A14</string>
-			</array>
-			<key>indentWidth</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-			<key>tabWidth</key>
-			<string>4</string>
-			<key>usesTabs</key>
-			<string>0</string>
-		</dict>
-		<key>5B9C603E16D7FABA005A0E8C</key>
-		<dict>
-			<key>attributes</key>
-			<dict>
-				<key>CLASSPREFIX</key>
-				<string>RAMCloudDocumentsExample</string>
-				<key>LastUpgradeCheck</key>
-				<string>0460</string>
-				<key>ORGANIZATIONNAME</key>
-				<string>bNapkin</string>
-			</dict>
-			<key>buildConfigurationList</key>
-			<string>5B9C604116D7FABA005A0E8C</string>
-			<key>compatibilityVersion</key>
-			<string>Xcode 3.2</string>
-			<key>developmentRegion</key>
-			<string>English</string>
-			<key>hasScannedForEncodings</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXProject</string>
-			<key>knownRegions</key>
-			<array>
-				<string>en</string>
-			</array>
-			<key>mainGroup</key>
-			<string>5B9C603D16D7FABA005A0E8C</string>
-			<key>productRefGroup</key>
-			<string>5B9C604716D7FABA005A0E8C</string>
-			<key>projectDirPath</key>
-			<string></string>
-			<key>projectReferences</key>
-			<array/>
-			<key>projectRoot</key>
-			<string></string>
-			<key>targets</key>
-			<array>
-				<string>5B9C604516D7FABA005A0E8C</string>
-				<string>5B9C606E16D7FABA005A0E8C</string>
-			</array>
-		</dict>
-		<key>5B9C604116D7FABA005A0E8C</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>5B9C607F16D7FABA005A0E8C</string>
-				<string>5B9C608016D7FABA005A0E8C</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>5B9C604216D7FABA005A0E8C</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>5B9C605616D7FABA005A0E8C</string>
-				<string>5B9C605A16D7FABA005A0E8C</string>
-				<string>5B9C606916D7FABA005A0E8C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>5B9C604316D7FABA005A0E8C</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>5B9C604A16D7FABA005A0E8C</string>
-				<string>5B9C604C16D7FABA005A0E8C</string>
-				<string>5B9C604E16D7FABA005A0E8C</string>
-				<string>225CAB2576944BB4A66DFD99</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>5B9C604416D7FABA005A0E8C</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>5B9C605416D7FABA005A0E8C</string>
-				<string>5B9C605C16D7FABA005A0E8C</string>
-				<string>5B9C605E16D7FABA005A0E8C</string>
-				<string>5B9C606016D7FABA005A0E8C</string>
-				<string>5B9C606316D7FABA005A0E8C</string>
-				<string>5B9C606616D7FABA005A0E8C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>5B9C604516D7FABA005A0E8C</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>5B9C608116D7FABA005A0E8C</string>
-			<key>buildPhases</key>
-			<array>
-				<string>5B9C604216D7FABA005A0E8C</string>
-				<string>5B9C604316D7FABA005A0E8C</string>
-				<string>5B9C604416D7FABA005A0E8C</string>
-				<string>0FAF99CED7284938A1FB16AE</string>
-				<string>A452382821CB48DF840D6A63</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>RAMCloudDocumentsExample</string>
-			<key>productName</key>
-			<string>RAMCloudDocumentsExample</string>
-			<key>productReference</key>
-			<string>5B9C604616D7FABA005A0E8C</string>
-			<key>productType</key>
-			<string>com.apple.product-type.application</string>
-		</dict>
-		<key>5B9C604616D7FABA005A0E8C</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.application</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RAMCloudDocumentsExample.app</string>
-			<key>path</key>
-			<string>RAMCloudDocumentsExample.app</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>5B9C604716D7FABA005A0E8C</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>5B9C604616D7FABA005A0E8C</string>
-				<string>5B9C606F16D7FABA005A0E8C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5B9C604816D7FABA005A0E8C</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>5B9C604916D7FABA005A0E8C</string>
-				<string>5B9C604B16D7FABA005A0E8C</string>
-				<string>5B9C604D16D7FABA005A0E8C</string>
-				<string>5B9C607016D7FABA005A0E8C</string>
-				<string>7122029A09D54CBD9CE7032A</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5B9C604916D7FABA005A0E8C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>UIKit.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/UIKit.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>5B9C604A16D7FABA005A0E8C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5B9C604916D7FABA005A0E8C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>5B9C604B16D7FABA005A0E8C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>Foundation.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/Foundation.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>5B9C604C16D7FABA005A0E8C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5B9C604B16D7FABA005A0E8C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>5B9C604D16D7FABA005A0E8C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>CoreGraphics.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/CoreGraphics.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>5B9C604E16D7FABA005A0E8C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5B9C604D16D7FABA005A0E8C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>5B9C604F16D7FABA005A0E8C</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>5B9C605816D7FABA005A0E8C</string>
-				<string>5B9C605916D7FABA005A0E8C</string>
-				<string>5B9C606116D7FABA005A0E8C</string>
-				<string>5B9C606416D7FABA005A0E8C</string>
-				<string>5B9C606716D7FABA005A0E8C</string>
-				<string>5B9C606816D7FABA005A0E8C</string>
-				<string>5B9C605016D7FABA005A0E8C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>RAMCloudDocumentsExample</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5B9C605016D7FABA005A0E8C</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>5B9C605116D7FABA005A0E8C</string>
-				<string>5B9C605216D7FABA005A0E8C</string>
-				<string>5B9C605516D7FABA005A0E8C</string>
-				<string>5B9C605716D7FABA005A0E8C</string>
-				<string>5B9C605B16D7FABA005A0E8C</string>
-				<string>5B9C605D16D7FABA005A0E8C</string>
-				<string>5B9C605F16D7FABA005A0E8C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Supporting Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5B9C605116D7FABA005A0E8C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>RAMCloudDocumentsExample-Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5B9C605216D7FABA005A0E8C</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>5B9C605316D7FABA005A0E8C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5B9C605316D7FABA005A0E8C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.strings</string>
-			<key>name</key>
-			<string>en</string>
-			<key>path</key>
-			<string>en.lproj/InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5B9C605416D7FABA005A0E8C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5B9C605216D7FABA005A0E8C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>5B9C605516D7FABA005A0E8C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>main.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5B9C605616D7FABA005A0E8C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5B9C605516D7FABA005A0E8C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>5B9C605716D7FABA005A0E8C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>RAMCloudDocumentsExample-Prefix.pch</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5B9C605816D7FABA005A0E8C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>RAMCloudDocumentsExampleAppDelegate.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5B9C605916D7FABA005A0E8C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>RAMCloudDocumentsExampleAppDelegate.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5B9C605A16D7FABA005A0E8C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5B9C605916D7FABA005A0E8C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>5B9C605B16D7FABA005A0E8C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>Default.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5B9C605C16D7FABA005A0E8C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5B9C605B16D7FABA005A0E8C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>5B9C605D16D7FABA005A0E8C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>Default@2x.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5B9C605E16D7FABA005A0E8C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5B9C605D16D7FABA005A0E8C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>5B9C605F16D7FABA005A0E8C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>Default-568h@2x.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5B9C606016D7FABA005A0E8C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5B9C605F16D7FABA005A0E8C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>5B9C606116D7FABA005A0E8C</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>5B9C606216D7FABA005A0E8C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>MainStoryboard_iPhone.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5B9C606216D7FABA005A0E8C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file.storyboard</string>
-			<key>name</key>
-			<string>en</string>
-			<key>path</key>
-			<string>en.lproj/MainStoryboard_iPhone.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5B9C606316D7FABA005A0E8C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5B9C606116D7FABA005A0E8C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>5B9C606416D7FABA005A0E8C</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>5B9C606516D7FABA005A0E8C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>MainStoryboard_iPad.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5B9C606516D7FABA005A0E8C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file.storyboard</string>
-			<key>name</key>
-			<string>en</string>
-			<key>path</key>
-			<string>en.lproj/MainStoryboard_iPad.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5B9C606616D7FABA005A0E8C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5B9C606416D7FABA005A0E8C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>5B9C606716D7FABA005A0E8C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>RAMCloudDocumentsExampleViewController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5B9C606816D7FABA005A0E8C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>RAMCloudDocumentsExampleViewController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5B9C606916D7FABA005A0E8C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5B9C606816D7FABA005A0E8C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>5B9C606A16D7FABA005A0E8C</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>5B9C607E16D7FABA005A0E8C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>5B9C606B16D7FABA005A0E8C</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>5B9C607116D7FABA005A0E8C</string>
-				<string>5B9C607216D7FABA005A0E8C</string>
-				<string>5B9C607316D7FABA005A0E8C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>5B9C606C16D7FABA005A0E8C</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>5B9C607B16D7FABA005A0E8C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>5B9C606D16D7FABA005A0E8C</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string># Run the unit tests in this test bundle.
-"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests"
-</string>
-		</dict>
-		<key>5B9C606E16D7FABA005A0E8C</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>5B9C608416D7FABA005A0E8C</string>
-			<key>buildPhases</key>
-			<array>
-				<string>5B9C606A16D7FABA005A0E8C</string>
-				<string>5B9C606B16D7FABA005A0E8C</string>
-				<string>5B9C606C16D7FABA005A0E8C</string>
-				<string>5B9C606D16D7FABA005A0E8C</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>5B9C607516D7FABA005A0E8C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>RAMCloudDocumentsExampleTests</string>
-			<key>productName</key>
-			<string>RAMCloudDocumentsExampleTests</string>
-			<key>productReference</key>
-			<string>5B9C606F16D7FABA005A0E8C</string>
-			<key>productType</key>
-			<string>com.apple.product-type.bundle</string>
-		</dict>
-		<key>5B9C606F16D7FABA005A0E8C</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.cfbundle</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RAMCloudDocumentsExampleTests.octest</string>
-			<key>path</key>
-			<string>RAMCloudDocumentsExampleTests.octest</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>5B9C607016D7FABA005A0E8C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>SenTestingKit.framework</string>
-			<key>path</key>
-			<string>Library/Frameworks/SenTestingKit.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>5B9C607116D7FABA005A0E8C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5B9C607016D7FABA005A0E8C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>5B9C607216D7FABA005A0E8C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5B9C604916D7FABA005A0E8C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>5B9C607316D7FABA005A0E8C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5B9C604B16D7FABA005A0E8C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>5B9C607416D7FABA005A0E8C</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>5B9C603E16D7FABA005A0E8C</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>5B9C604516D7FABA005A0E8C</string>
-			<key>remoteInfo</key>
-			<string>RAMCloudDocumentsExample</string>
-		</dict>
-		<key>5B9C607516D7FABA005A0E8C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>target</key>
-			<string>5B9C604516D7FABA005A0E8C</string>
-			<key>targetProxy</key>
-			<string>5B9C607416D7FABA005A0E8C</string>
-		</dict>
-		<key>5B9C607616D7FABA005A0E8C</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>5B9C607C16D7FABA005A0E8C</string>
-				<string>5B9C607D16D7FABA005A0E8C</string>
-				<string>5B9C607716D7FABA005A0E8C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>RAMCloudDocumentsExampleTests</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5B9C607716D7FABA005A0E8C</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>5B9C607816D7FABA005A0E8C</string>
-				<string>5B9C607916D7FABA005A0E8C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Supporting Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5B9C607816D7FABA005A0E8C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>RAMCloudDocumentsExampleTests-Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5B9C607916D7FABA005A0E8C</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>5B9C607A16D7FABA005A0E8C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5B9C607A16D7FABA005A0E8C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.strings</string>
-			<key>name</key>
-			<string>en</string>
-			<key>path</key>
-			<string>en.lproj/InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5B9C607B16D7FABA005A0E8C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5B9C607916D7FABA005A0E8C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>5B9C607C16D7FABA005A0E8C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>RAMCloudDocumentsExampleTests.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5B9C607D16D7FABA005A0E8C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>RAMCloudDocumentsExampleTests.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5B9C607E16D7FABA005A0E8C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5B9C607D16D7FABA005A0E8C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>5B9C607F16D7FABA005A0E8C</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
-				<string>NO</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_MISSING_NEWLINE</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES</string>
-				<key>GCC_WARN_CHECK_SWITCH_STATEMENTS</key>
-				<string>YES</string>
-				<key>GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED</key>
-				<string>YES</string>
-				<key>GCC_WARN_MISSING_PARENTHESES</key>
-				<string>YES</string>
-				<key>GCC_WARN_SHADOW</key>
-				<string>YES</string>
-				<key>GCC_WARN_SIGN_COMPARE</key>
-				<string>YES</string>
-				<key>GCC_WARN_TYPECHECK_CALLS_TO_PRINTF</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_LABEL</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VALUE</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>6.1</string>
-				<key>ONLY_ACTIVE_ARCH</key>
-				<string>YES</string>
-				<key>RUN_CLANG_STATIC_ANALYZER</key>
-				<string>YES</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>5B9C608016D7FABA005A0E8C</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>YES</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_MISSING_NEWLINE</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES</string>
-				<key>GCC_WARN_CHECK_SWITCH_STATEMENTS</key>
-				<string>YES</string>
-				<key>GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED</key>
-				<string>YES</string>
-				<key>GCC_WARN_MISSING_PARENTHESES</key>
-				<string>YES</string>
-				<key>GCC_WARN_SHADOW</key>
-				<string>YES</string>
-				<key>GCC_WARN_SIGN_COMPARE</key>
-				<string>YES</string>
-				<key>GCC_WARN_TYPECHECK_CALLS_TO_PRINTF</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_LABEL</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VALUE</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>6.1</string>
-				<key>OTHER_CFLAGS</key>
-				<string>-DNS_BLOCK_ASSERTIONS=1</string>
-				<key>RUN_CLANG_STATIC_ANALYZER</key>
-				<string>YES</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>5B9C608116D7FABA005A0E8C</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>5B9C608216D7FABA005A0E8C</string>
-				<string>5B9C608316D7FABA005A0E8C</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>5B9C608216D7FABA005A0E8C</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>E5216C293AFC4B30A3147A14</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>RAMCloudDocumentsExample/RAMCloudDocumentsExample-Prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>RAMCloudDocumentsExample/RAMCloudDocumentsExample-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>app</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>5B9C608316D7FABA005A0E8C</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>E5216C293AFC4B30A3147A14</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>RAMCloudDocumentsExample/RAMCloudDocumentsExample-Prefix.pch</string>
-				<key>GCC_TREAT_WARNINGS_AS_ERRORS</key>
-				<string>YES</string>
-				<key>INFOPLIST_FILE</key>
-				<string>RAMCloudDocumentsExample/RAMCloudDocumentsExample-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>app</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>5B9C608416D7FABA005A0E8C</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>5B9C608516D7FABA005A0E8C</string>
-				<string>5B9C608616D7FABA005A0E8C</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>5B9C608516D7FABA005A0E8C</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>BUNDLE_LOADER</key>
-				<string>$(BUILT_PRODUCTS_DIR)/RAMCloudDocumentsExample.app/RAMCloudDocumentsExample</string>
-				<key>FRAMEWORK_SEARCH_PATHS</key>
-				<array>
-					<string>"$(SDKROOT)/Developer/Library/Frameworks"</string>
-					<string>"$(DEVELOPER_LIBRARY_DIR)/Frameworks"</string>
-				</array>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>RAMCloudDocumentsExample/RAMCloudDocumentsExample-Prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>RAMCloudDocumentsExampleTests/RAMCloudDocumentsExampleTests-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>TEST_HOST</key>
-				<string>$(BUNDLE_LOADER)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>octest</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>5B9C608616D7FABA005A0E8C</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>BUNDLE_LOADER</key>
-				<string>$(BUILT_PRODUCTS_DIR)/RAMCloudDocumentsExample.app/RAMCloudDocumentsExample</string>
-				<key>FRAMEWORK_SEARCH_PATHS</key>
-				<array>
-					<string>"$(SDKROOT)/Developer/Library/Frameworks"</string>
-					<string>"$(DEVELOPER_LIBRARY_DIR)/Frameworks"</string>
-				</array>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>RAMCloudDocumentsExample/RAMCloudDocumentsExample-Prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>RAMCloudDocumentsExampleTests/RAMCloudDocumentsExampleTests-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>TEST_HOST</key>
-				<string>$(BUNDLE_LOADER)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>octest</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>7122029A09D54CBD9CE7032A</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>libPods.a</string>
-			<key>path</key>
-			<string>libPods.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>A452382821CB48DF840D6A63</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Copy Pods Resources</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Pods-resources.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>1</string>
-		</dict>
-		<key>E5216C293AFC4B30A3147A14</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Pods.xcconfig</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-	</dict>
-	<key>rootObject</key>
-	<string>5B9C603E16D7FABA005A0E8C</string>
-</dict>
-</plist>
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		225CAB2576944BB4A66DFD99 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7122029A09D54CBD9CE7032A /* libPods.a */; };
+		5B9C604A16D7FABA005A0E8C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9C604916D7FABA005A0E8C /* UIKit.framework */; };
+		5B9C604C16D7FABA005A0E8C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9C604B16D7FABA005A0E8C /* Foundation.framework */; };
+		5B9C604E16D7FABA005A0E8C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9C604D16D7FABA005A0E8C /* CoreGraphics.framework */; };
+		5B9C605416D7FABA005A0E8C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5B9C605216D7FABA005A0E8C /* InfoPlist.strings */; };
+		5B9C605616D7FABA005A0E8C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9C605516D7FABA005A0E8C /* main.m */; };
+		5B9C605A16D7FABA005A0E8C /* RAMCloudDocumentsExampleAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9C605916D7FABA005A0E8C /* RAMCloudDocumentsExampleAppDelegate.m */; };
+		5B9C605C16D7FABA005A0E8C /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B9C605B16D7FABA005A0E8C /* Default.png */; };
+		5B9C605E16D7FABA005A0E8C /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B9C605D16D7FABA005A0E8C /* Default@2x.png */; };
+		5B9C606016D7FABA005A0E8C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B9C605F16D7FABA005A0E8C /* Default-568h@2x.png */; };
+		5B9C606316D7FABA005A0E8C /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B9C606116D7FABA005A0E8C /* MainStoryboard_iPhone.storyboard */; };
+		5B9C606616D7FABA005A0E8C /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B9C606416D7FABA005A0E8C /* MainStoryboard_iPad.storyboard */; };
+		5B9C606916D7FABA005A0E8C /* RAMCloudDocumentsExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9C606816D7FABA005A0E8C /* RAMCloudDocumentsExampleViewController.m */; };
+		5B9C607116D7FABA005A0E8C /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9C607016D7FABA005A0E8C /* SenTestingKit.framework */; };
+		5B9C607216D7FABA005A0E8C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9C604916D7FABA005A0E8C /* UIKit.framework */; };
+		5B9C607316D7FABA005A0E8C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9C604B16D7FABA005A0E8C /* Foundation.framework */; };
+		5B9C607B16D7FABA005A0E8C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5B9C607916D7FABA005A0E8C /* InfoPlist.strings */; };
+		5B9C607E16D7FABA005A0E8C /* RAMCloudDocumentsExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9C607D16D7FABA005A0E8C /* RAMCloudDocumentsExampleTests.m */; };
+		5B9C608916D7FE3C005A0E8C /* RAMCloudDocumentsSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9C608816D7FE3C005A0E8C /* RAMCloudDocumentsSession.m */; };
+		5B9C608F16D853E2005A0E8C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9C608E16D853E2005A0E8C /* Security.framework */; };
+		5B9C609116D853E9005A0E8C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9C609016D853E9005A0E8C /* QuartzCore.framework */; };
+		5BE5C43416DBC4D100CE41E9 /* RAMOAuth2ViewControllerTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE5C43216DBC4D100CE41E9 /* RAMOAuth2ViewControllerTouch.m */; };
+		5BE5C43516DBC4D100CE41E9 /* RAMOAuth2ViewControllerTouch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BE5C43316DBC4D100CE41E9 /* RAMOAuth2ViewControllerTouch.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5B9C607416D7FABA005A0E8C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5B9C603E16D7FABA005A0E8C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5B9C604516D7FABA005A0E8C;
+			remoteInfo = RAMCloudDocumentsExample;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5B9C604616D7FABA005A0E8C /* RAMCloudDocumentsExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RAMCloudDocumentsExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B9C604916D7FABA005A0E8C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		5B9C604B16D7FABA005A0E8C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		5B9C604D16D7FABA005A0E8C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		5B9C605116D7FABA005A0E8C /* RAMCloudDocumentsExample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RAMCloudDocumentsExample-Info.plist"; sourceTree = "<group>"; };
+		5B9C605316D7FABA005A0E8C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5B9C605516D7FABA005A0E8C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5B9C605716D7FABA005A0E8C /* RAMCloudDocumentsExample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RAMCloudDocumentsExample-Prefix.pch"; sourceTree = "<group>"; };
+		5B9C605816D7FABA005A0E8C /* RAMCloudDocumentsExampleAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RAMCloudDocumentsExampleAppDelegate.h; sourceTree = "<group>"; };
+		5B9C605916D7FABA005A0E8C /* RAMCloudDocumentsExampleAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RAMCloudDocumentsExampleAppDelegate.m; sourceTree = "<group>"; };
+		5B9C605B16D7FABA005A0E8C /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		5B9C605D16D7FABA005A0E8C /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		5B9C605F16D7FABA005A0E8C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		5B9C606216D7FABA005A0E8C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		5B9C606516D7FABA005A0E8C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		5B9C606716D7FABA005A0E8C /* RAMCloudDocumentsExampleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RAMCloudDocumentsExampleViewController.h; sourceTree = "<group>"; };
+		5B9C606816D7FABA005A0E8C /* RAMCloudDocumentsExampleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RAMCloudDocumentsExampleViewController.m; sourceTree = "<group>"; };
+		5B9C606F16D7FABA005A0E8C /* RAMCloudDocumentsExampleTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RAMCloudDocumentsExampleTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B9C607016D7FABA005A0E8C /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		5B9C607816D7FABA005A0E8C /* RAMCloudDocumentsExampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RAMCloudDocumentsExampleTests-Info.plist"; sourceTree = "<group>"; };
+		5B9C607A16D7FABA005A0E8C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5B9C607C16D7FABA005A0E8C /* RAMCloudDocumentsExampleTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RAMCloudDocumentsExampleTests.h; sourceTree = "<group>"; };
+		5B9C607D16D7FABA005A0E8C /* RAMCloudDocumentsExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RAMCloudDocumentsExampleTests.m; sourceTree = "<group>"; };
+		5B9C608716D7FE3C005A0E8C /* RAMCloudDocumentsSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RAMCloudDocumentsSession.h; path = RAMCloudDocuments/RAMCloudDocumentsSession.h; sourceTree = "<group>"; };
+		5B9C608816D7FE3C005A0E8C /* RAMCloudDocumentsSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RAMCloudDocumentsSession.m; path = RAMCloudDocuments/RAMCloudDocumentsSession.m; sourceTree = "<group>"; };
+		5B9C608D16D8179B005A0E8C /* RAMCloudDocuments.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RAMCloudDocuments.h; path = RAMCloudDocuments/RAMCloudDocuments.h; sourceTree = "<group>"; };
+		5B9C608E16D853E2005A0E8C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		5B9C609016D853E9005A0E8C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		5BE5C43116DBC4D100CE41E9 /* RAMOAuth2ViewControllerTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RAMOAuth2ViewControllerTouch.h; path = RAMCloudDocuments/RAMOAuth2ViewControllerTouch.h; sourceTree = "<group>"; };
+		5BE5C43216DBC4D100CE41E9 /* RAMOAuth2ViewControllerTouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RAMOAuth2ViewControllerTouch.m; path = RAMCloudDocuments/RAMOAuth2ViewControllerTouch.m; sourceTree = "<group>"; };
+		5BE5C43316DBC4D100CE41E9 /* RAMOAuth2ViewControllerTouch.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RAMOAuth2ViewControllerTouch.xib; path = RAMCloudDocuments/RAMOAuth2ViewControllerTouch.xib; sourceTree = "<group>"; };
+		7122029A09D54CBD9CE7032A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5216C293AFC4B30A3147A14 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5B9C604316D7FABA005A0E8C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B9C609116D853E9005A0E8C /* QuartzCore.framework in Frameworks */,
+				5B9C608F16D853E2005A0E8C /* Security.framework in Frameworks */,
+				5B9C604A16D7FABA005A0E8C /* UIKit.framework in Frameworks */,
+				5B9C604C16D7FABA005A0E8C /* Foundation.framework in Frameworks */,
+				5B9C604E16D7FABA005A0E8C /* CoreGraphics.framework in Frameworks */,
+				225CAB2576944BB4A66DFD99 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B9C606B16D7FABA005A0E8C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B9C607116D7FABA005A0E8C /* SenTestingKit.framework in Frameworks */,
+				5B9C607216D7FABA005A0E8C /* UIKit.framework in Frameworks */,
+				5B9C607316D7FABA005A0E8C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5B9C603D16D7FABA005A0E8C = {
+			isa = PBXGroup;
+			children = (
+				5B9C604F16D7FABA005A0E8C /* RAMCloudDocumentsExample */,
+				5B9C607616D7FABA005A0E8C /* RAMCloudDocumentsExampleTests */,
+				5B9C604816D7FABA005A0E8C /* Frameworks */,
+				5B9C604716D7FABA005A0E8C /* Products */,
+				E5216C293AFC4B30A3147A14 /* Pods.xcconfig */,
+			);
+			indentWidth = 4;
+			sourceTree = "<group>";
+			tabWidth = 4;
+			usesTabs = 0;
+		};
+		5B9C604716D7FABA005A0E8C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5B9C604616D7FABA005A0E8C /* RAMCloudDocumentsExample.app */,
+				5B9C606F16D7FABA005A0E8C /* RAMCloudDocumentsExampleTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5B9C604816D7FABA005A0E8C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5B9C609016D853E9005A0E8C /* QuartzCore.framework */,
+				5B9C608E16D853E2005A0E8C /* Security.framework */,
+				5B9C604916D7FABA005A0E8C /* UIKit.framework */,
+				5B9C604B16D7FABA005A0E8C /* Foundation.framework */,
+				5B9C604D16D7FABA005A0E8C /* CoreGraphics.framework */,
+				5B9C607016D7FABA005A0E8C /* SenTestingKit.framework */,
+				7122029A09D54CBD9CE7032A /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5B9C604F16D7FABA005A0E8C /* RAMCloudDocumentsExample */ = {
+			isa = PBXGroup;
+			children = (
+				5B9C605816D7FABA005A0E8C /* RAMCloudDocumentsExampleAppDelegate.h */,
+				5B9C605916D7FABA005A0E8C /* RAMCloudDocumentsExampleAppDelegate.m */,
+				5B9C606116D7FABA005A0E8C /* MainStoryboard_iPhone.storyboard */,
+				5B9C606416D7FABA005A0E8C /* MainStoryboard_iPad.storyboard */,
+				5B9C606716D7FABA005A0E8C /* RAMCloudDocumentsExampleViewController.h */,
+				5B9C606816D7FABA005A0E8C /* RAMCloudDocumentsExampleViewController.m */,
+				5B9C608A16D7FE40005A0E8C /* RAMCloudDocuments */,
+				5B9C605016D7FABA005A0E8C /* Supporting Files */,
+			);
+			path = RAMCloudDocumentsExample;
+			sourceTree = "<group>";
+		};
+		5B9C605016D7FABA005A0E8C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5B9C605116D7FABA005A0E8C /* RAMCloudDocumentsExample-Info.plist */,
+				5B9C605216D7FABA005A0E8C /* InfoPlist.strings */,
+				5B9C605516D7FABA005A0E8C /* main.m */,
+				5B9C605716D7FABA005A0E8C /* RAMCloudDocumentsExample-Prefix.pch */,
+				5B9C605B16D7FABA005A0E8C /* Default.png */,
+				5B9C605D16D7FABA005A0E8C /* Default@2x.png */,
+				5B9C605F16D7FABA005A0E8C /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5B9C607616D7FABA005A0E8C /* RAMCloudDocumentsExampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				5B9C607C16D7FABA005A0E8C /* RAMCloudDocumentsExampleTests.h */,
+				5B9C607D16D7FABA005A0E8C /* RAMCloudDocumentsExampleTests.m */,
+				5B9C607716D7FABA005A0E8C /* Supporting Files */,
+			);
+			path = RAMCloudDocumentsExampleTests;
+			sourceTree = "<group>";
+		};
+		5B9C607716D7FABA005A0E8C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5B9C607816D7FABA005A0E8C /* RAMCloudDocumentsExampleTests-Info.plist */,
+				5B9C607916D7FABA005A0E8C /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5B9C608A16D7FE40005A0E8C /* RAMCloudDocuments */ = {
+			isa = PBXGroup;
+			children = (
+				5B9C608716D7FE3C005A0E8C /* RAMCloudDocumentsSession.h */,
+				5B9C608816D7FE3C005A0E8C /* RAMCloudDocumentsSession.m */,
+				5B9C608D16D8179B005A0E8C /* RAMCloudDocuments.h */,
+				5BE5C43116DBC4D100CE41E9 /* RAMOAuth2ViewControllerTouch.h */,
+				5BE5C43216DBC4D100CE41E9 /* RAMOAuth2ViewControllerTouch.m */,
+				5BE5C43316DBC4D100CE41E9 /* RAMOAuth2ViewControllerTouch.xib */,
+			);
+			name = RAMCloudDocuments;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5B9C604516D7FABA005A0E8C /* RAMCloudDocumentsExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5B9C608116D7FABA005A0E8C /* Build configuration list for PBXNativeTarget "RAMCloudDocumentsExample" */;
+			buildPhases = (
+				5B9C604216D7FABA005A0E8C /* Sources */,
+				5B9C604316D7FABA005A0E8C /* Frameworks */,
+				5B9C604416D7FABA005A0E8C /* Resources */,
+				0FAF99CED7284938A1FB16AE /* Warn for TODO and FIXME comments */,
+				A452382821CB48DF840D6A63 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RAMCloudDocumentsExample;
+			productName = RAMCloudDocumentsExample;
+			productReference = 5B9C604616D7FABA005A0E8C /* RAMCloudDocumentsExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5B9C606E16D7FABA005A0E8C /* RAMCloudDocumentsExampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5B9C608416D7FABA005A0E8C /* Build configuration list for PBXNativeTarget "RAMCloudDocumentsExampleTests" */;
+			buildPhases = (
+				5B9C606A16D7FABA005A0E8C /* Sources */,
+				5B9C606B16D7FABA005A0E8C /* Frameworks */,
+				5B9C606C16D7FABA005A0E8C /* Resources */,
+				5B9C606D16D7FABA005A0E8C /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5B9C607516D7FABA005A0E8C /* PBXTargetDependency */,
+			);
+			name = RAMCloudDocumentsExampleTests;
+			productName = RAMCloudDocumentsExampleTests;
+			productReference = 5B9C606F16D7FABA005A0E8C /* RAMCloudDocumentsExampleTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5B9C603E16D7FABA005A0E8C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = RAMCloudDocumentsExample;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = bNapkin;
+			};
+			buildConfigurationList = 5B9C604116D7FABA005A0E8C /* Build configuration list for PBXProject "RAMCloudDocumentsExample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5B9C603D16D7FABA005A0E8C;
+			productRefGroup = 5B9C604716D7FABA005A0E8C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5B9C604516D7FABA005A0E8C /* RAMCloudDocumentsExample */,
+				5B9C606E16D7FABA005A0E8C /* RAMCloudDocumentsExampleTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5B9C604416D7FABA005A0E8C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B9C605416D7FABA005A0E8C /* InfoPlist.strings in Resources */,
+				5B9C605C16D7FABA005A0E8C /* Default.png in Resources */,
+				5B9C605E16D7FABA005A0E8C /* Default@2x.png in Resources */,
+				5B9C606016D7FABA005A0E8C /* Default-568h@2x.png in Resources */,
+				5B9C606316D7FABA005A0E8C /* MainStoryboard_iPhone.storyboard in Resources */,
+				5B9C606616D7FABA005A0E8C /* MainStoryboard_iPad.storyboard in Resources */,
+				5BE5C43516DBC4D100CE41E9 /* RAMOAuth2ViewControllerTouch.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B9C606C16D7FABA005A0E8C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B9C607B16D7FABA005A0E8C /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0FAF99CED7284938A1FB16AE /* Warn for TODO and FIXME comments */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Warn for TODO and FIXME comments";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "KEYWORDS=\"TODO:|FIXME:|\\?\\?\\?:|\\!\\!\\!:\"\nfind \"${SRCROOT}\" -ipath \"${SRCROOT}/pods\" -prune -o \\( -name \"*.h\" -or -name \"*.m\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($KEYWORDS).*\\$\" | perl -p -e \"s/($KEYWORDS)/ warning: \\$1/\"\n";
+		};
+		5B9C606D16D7FABA005A0E8C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+		A452382821CB48DF840D6A63 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5B9C604216D7FABA005A0E8C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B9C605616D7FABA005A0E8C /* main.m in Sources */,
+				5B9C605A16D7FABA005A0E8C /* RAMCloudDocumentsExampleAppDelegate.m in Sources */,
+				5B9C606916D7FABA005A0E8C /* RAMCloudDocumentsExampleViewController.m in Sources */,
+				5B9C608916D7FE3C005A0E8C /* RAMCloudDocumentsSession.m in Sources */,
+				5BE5C43416DBC4D100CE41E9 /* RAMOAuth2ViewControllerTouch.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B9C606A16D7FABA005A0E8C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B9C607E16D7FABA005A0E8C /* RAMCloudDocumentsExampleTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5B9C607516D7FABA005A0E8C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5B9C604516D7FABA005A0E8C /* RAMCloudDocumentsExample */;
+			targetProxy = 5B9C607416D7FABA005A0E8C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5B9C605216D7FABA005A0E8C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B9C605316D7FABA005A0E8C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		5B9C606116D7FABA005A0E8C /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B9C606216D7FABA005A0E8C /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		5B9C606416D7FABA005A0E8C /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B9C606516D7FABA005A0E8C /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		5B9C607916D7FABA005A0E8C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B9C607A16D7FABA005A0E8C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5B9C607F16D7FABA005A0E8C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_CHECK_SWITCH_STATEMENTS = YES;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_MISSING_PARENTHESES = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_VALUE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5B9C608016D7FABA005A0E8C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_CHECK_SWITCH_STATEMENTS = YES;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_MISSING_PARENTHESES = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_VALUE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5B9C608216D7FABA005A0E8C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E5216C293AFC4B30A3147A14 /* Pods.xcconfig */;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RAMCloudDocumentsExample/RAMCloudDocumentsExample-Prefix.pch";
+				INFOPLIST_FILE = "RAMCloudDocumentsExample/RAMCloudDocumentsExample-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		5B9C608316D7FABA005A0E8C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E5216C293AFC4B30A3147A14 /* Pods.xcconfig */;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RAMCloudDocumentsExample/RAMCloudDocumentsExample-Prefix.pch";
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				INFOPLIST_FILE = "RAMCloudDocumentsExample/RAMCloudDocumentsExample-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		5B9C608516D7FABA005A0E8C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/RAMCloudDocumentsExample.app/RAMCloudDocumentsExample";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RAMCloudDocumentsExample/RAMCloudDocumentsExample-Prefix.pch";
+				INFOPLIST_FILE = "RAMCloudDocumentsExampleTests/RAMCloudDocumentsExampleTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		5B9C608616D7FABA005A0E8C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/RAMCloudDocumentsExample.app/RAMCloudDocumentsExample";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RAMCloudDocumentsExample/RAMCloudDocumentsExample-Prefix.pch";
+				INFOPLIST_FILE = "RAMCloudDocumentsExampleTests/RAMCloudDocumentsExampleTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5B9C604116D7FABA005A0E8C /* Build configuration list for PBXProject "RAMCloudDocumentsExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B9C607F16D7FABA005A0E8C /* Debug */,
+				5B9C608016D7FABA005A0E8C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5B9C608116D7FABA005A0E8C /* Build configuration list for PBXNativeTarget "RAMCloudDocumentsExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B9C608216D7FABA005A0E8C /* Debug */,
+				5B9C608316D7FABA005A0E8C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5B9C608416D7FABA005A0E8C /* Build configuration list for PBXNativeTarget "RAMCloudDocumentsExampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B9C608516D7FABA005A0E8C /* Debug */,
+				5B9C608616D7FABA005A0E8C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5B9C603E16D7FABA005A0E8C /* Project object */;
+}
