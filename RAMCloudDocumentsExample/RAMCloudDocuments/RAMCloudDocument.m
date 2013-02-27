@@ -10,4 +10,9 @@
 
 @implementation RAMCloudDocument
 
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"title: %@, thumb: %@", self.title, self.thumbnail];
+}
+
 @end

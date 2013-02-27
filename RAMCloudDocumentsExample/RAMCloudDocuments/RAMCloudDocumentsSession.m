@@ -8,8 +8,8 @@
 
 #import "RAMCloudDocumentsSession.h"
 #import "RAMOAuth2ViewControllerTouch.h"
-#import "RAMCloudDocument.h"
 #import "GTLDrive.h"
+#import "MFCache.h"
 
 typedef enum {
     RAMCloudDocumentsServiceTypeGoogleDrive,
@@ -18,6 +18,7 @@ typedef enum {
 
 typedef void (^LoadMetadataCallback)(DBMetadata*, NSError*);
 typedef void (^LoadAccountInfoCallback)(DBAccountInfo*, NSError*);
+typedef void (^LoadThumbnailCallback)(DBMetadata*, NSError*);
 
 @interface RAMCloudDocumentsSession () <DBRestClientDelegate>
 
@@ -145,19 +146,21 @@ typedef void (^LoadAccountInfoCallback)(DBAccountInfo*, NSError*);
 #pragma mark Account Info
 - (void)loadAccountInfo:(void (^)(NSString *accountInfo, NSError *error))completion
 {
-    if (self.serviceType == RAMCloudDocumentsServiceTypeDropbox) {
-        
-        [self dropboxLoadAccountInfo:^(DBAccountInfo *info, NSError *error) {
-            completion(info.displayName, error);
-        }];
-        
-    } else if (self.serviceType == RAMCloudDocumentsServiceTypeGoogleDrive) {
-        
-        GTMOAuth2Authentication *auth =
-        [GTMOAuth2ViewControllerTouch authForGoogleFromKeychainForName:self.keychainItemName
-                                                              clientID:self.clientId
-                                                          clientSecret:self.secret];
-        completion(auth.userEmail, nil);
+    if (completion) {
+        if (self.serviceType == RAMCloudDocumentsServiceTypeDropbox) {
+            
+            [self dropboxLoadAccountInfo:^(DBAccountInfo *info, NSError *error) {
+                completion(info.displayName, error);
+            }];
+            
+        } else if (self.serviceType == RAMCloudDocumentsServiceTypeGoogleDrive) {
+            
+            GTMOAuth2Authentication *auth =
+            [GTMOAuth2ViewControllerTouch authForGoogleFromKeychainForName:self.keychainItemName
+                                                                  clientID:self.clientId
+                                                              clientSecret:self.secret];
+            completion(auth.userEmail, nil);
+        }
     }
 }
 
@@ -172,20 +175,23 @@ typedef void (^LoadAccountInfoCallback)(DBAccountInfo*, NSError*);
 
 - (void)loadDocuments:(NSString *)path completion:(void (^)(NSArray *documents, NSError *error))completion; 
 {
-    if (self.serviceType == RAMCloudDocumentsServiceTypeDropbox) {
-        [self dropboxLoadMetadata:path completionBlock:^(DBMetadata *metadata, NSError *error) {
-            NSMutableArray *documents = [[NSMutableArray alloc] init];
-            if (!error) {
-                for (DBMetadata *child in metadata.contents) {
-                    RAMCloudDocument *document = [[RAMCloudDocument alloc] init];
-                    document.title = [child.path lastPathComponent];
-                    document.isDirectory = child.isDirectory;
-                    document.path = child.path;
-                    [documents addObject:document];
+    if (path && completion) {
+        if (self.serviceType == RAMCloudDocumentsServiceTypeDropbox) {
+            [self dropboxLoadMetadata:path completionBlock:^(DBMetadata *metadata, NSError *error) {
+                NSMutableArray *documents = [[NSMutableArray alloc] init];
+                if (!error) {
+                    for (DBMetadata *child in metadata.contents) {
+                        RAMCloudDocument *document = [[RAMCloudDocument alloc] init];
+                        document.title = [child.path lastPathComponent];
+                        document.isDirectory = child.isDirectory;
+                        document.path = child.path;
+                        document.thumbnailExists = child.thumbnailExists;
+                        [documents addObject:document];
+                    }
                 }
-            }
-            completion(documents, error);
-        }];
+                completion(documents, error);
+            }];
+        }
     }
 }
 
@@ -193,6 +199,41 @@ typedef void (^LoadAccountInfoCallback)(DBAccountInfo*, NSError*);
 {
     self.callback = completionBlock;
     [self.restClient loadMetadata:path];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+}
+
+#pragma mark thumbnails
+
+- (void)loadThumbnailForDocument:(RAMCloudDocument *)document completion:(void (^)(RAMCloudDocument *document))completion
+{
+    if (document) {
+        if (document.thumbnailExists) {
+            NSString *thumbPrefix = kTHUMB_PREFIX;
+            NSString *thumbKey = [NSString stringWithFormat:@"%@%@",thumbPrefix,document.title];
+            UIImage *cachedThumb = (UIImage *)[MFCache valueForKey:thumbKey];
+            if (cachedThumb){
+                document.thumbnail = cachedThumb;
+                completion(document);
+            } else {
+                if (self.serviceType == RAMCloudDocumentsServiceTypeDropbox) {
+                    NSString *destinationPath = [NSTemporaryDirectory() stringByAppendingPathComponent:thumbKey];
+                    [self dropboxLoadThumbnail:document.path ofSize:@"m" intoPath:destinationPath completionBlock:^(DBMetadata *metadata, NSError *error) {
+                        if (!error) {
+                            document.thumbnail = [UIImage imageWithContentsOfFile:destinationPath];
+                            [MFCache setValue:document.thumbnail forKey:thumbKey expiration:kCACHE_EXPIRATION_TIME];
+                        }
+                        completion(document);
+                    }];
+                }
+            }
+        }
+    }
+}
+
+- (void)dropboxLoadThumbnail:(NSString *)path ofSize:(NSString *)size intoPath:(NSString *)destinationPath completionBlock:(LoadThumbnailCallback)completionBlock
+{
+    self.callback = completionBlock;
+    [self.restClient loadThumbnail:path ofSize:size intoPath:destinationPath];
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 }
 
@@ -224,6 +265,20 @@ typedef void (^LoadAccountInfoCallback)(DBAccountInfo*, NSError*);
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     LoadMetadataCallback handler = self.callback;
     handler(nil,error);
+}
+
+- (void)restClient:(DBRestClient *)client loadedThumbnail:(NSString *)destPath metadata:(DBMetadata *)metadata
+{
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    LoadThumbnailCallback handler = self.callback;
+    handler(metadata, nil);
+}
+
+- (void)restClient:(DBRestClient *)client loadThumbnailFailedWithError:(NSError *)error
+{
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    LoadThumbnailCallback handler = self.callback;
+    handler(nil, error);
 }
 
 

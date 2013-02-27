@@ -11,7 +11,9 @@
 @interface RAMCloudDocument : NSObject
 
 @property (nonatomic, copy) NSString *title;
-@property (nonatomic) BOOL isDirectory;
 @property (nonatomic, copy) NSString *path;
+@property (nonatomic, strong) UIImage *thumbnail;
+@property (nonatomic) BOOL thumbnailExists;
+@property (nonatomic) BOOL isDirectory;
 
 @end
