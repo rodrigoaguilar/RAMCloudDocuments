@@ -8,6 +8,7 @@
 
 #import "RAMCloudDocumentsSession.h"
 #import "RAMOAuth2ViewControllerTouch.h"
+#import "RAMCloudDocument.h"
 #import "GTLDrive.h"
 
 typedef enum {
@@ -15,12 +16,23 @@ typedef enum {
     RAMCloudDocumentsServiceTypeDropbox
 } RAMCloudDocumentsServiceType;
 
+typedef void (^LoadMetadataCallback)(DBMetadata*, NSError*);
+typedef void (^LoadAccountInfoCallback)(DBAccountInfo*, NSError*);
+
 @interface RAMCloudDocumentsSession () <DBRestClientDelegate>
 
 @property (nonatomic) RAMCloudDocumentsServiceType serviceType;
 @property (nonatomic, strong) DBRestClient *restClient;
-@property (nonatomic, copy) loadAccountInfoCompletion loadAccountInfoBlock;
-@property (nonatomic, copy) NSString *userInfo;
+@property(nonatomic, copy) id callback;
+
+//For Google Drive
+@property (nonatomic, copy) NSString *keychainItemName;
+@property (nonatomic, copy) NSString *clientId;
+//For Dropbox
+@property (nonatomic, copy) NSString *accessType;
+@property (nonatomic, copy) NSString *key;
+
+@property (nonatomic, copy) NSString *secret;
 
 @end
 
@@ -75,21 +87,10 @@ typedef enum {
         [GTMOAuth2ViewControllerTouch authForGoogleFromKeychainForName:self.keychainItemName
                                                               clientID:self.clientId
                                                           clientSecret:self.secret];
-        
-        if ([auth canAuthorize]) {
-            self.userInfo = auth.userEmail;
-            return YES;
-        }
-        return NO;
+        return  [auth canAuthorize];
         
     } else if (self.serviceType == RAMCloudDocumentsServiceTypeDropbox) {
-        
-        if ([[DBSession sharedSession] isLinked]) {
-            [self.restClient loadAccountInfo];
-            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-            return YES;
-        }
-        return  NO;
+        return  [[DBSession sharedSession] isLinked];
     }
     return NO;
 }
@@ -115,9 +116,12 @@ typedef enum {
                                                    clientSecret:self.secret
                                                keychainItemName:self.keychainItemName
                                               completionHandler:^(GTMOAuth2ViewControllerTouch *viewController, GTMOAuth2Authentication *auth, NSError *error) {
-                if (completion) {
-                    completion(error);
-                }
+                                                  if (!error) {
+                                                       NSLog(@"App linked successfully!");
+                                                  }
+                                                  if (completion) {
+                                                      completion(error);
+                                                  }
             }];
             
             authViewController.showsInitialActivityIndicator = NO;
@@ -138,33 +142,58 @@ typedef enum {
     return NO;
 }
 
-- (void)loadAccountInfoWithCompletion:(loadAccountInfoCompletion)completion;
+#pragma mark Account Info
+- (void)loadAccountInfo:(void (^)(NSString *accountInfo, NSError *error))completion
 {
-    if (completion) {
-        self.loadAccountInfoBlock = completion;
+    if (self.serviceType == RAMCloudDocumentsServiceTypeDropbox) {
+        
+        [self dropboxLoadAccountInfo:^(DBAccountInfo *info, NSError *error) {
+            completion(info.displayName, error);
+        }];
+        
+    } else if (self.serviceType == RAMCloudDocumentsServiceTypeGoogleDrive) {
+        
+        GTMOAuth2Authentication *auth =
+        [GTMOAuth2ViewControllerTouch authForGoogleFromKeychainForName:self.keychainItemName
+                                                              clientID:self.clientId
+                                                          clientSecret:self.secret];
+        completion(auth.userEmail, nil);
     }
-    
-    if (self.userInfo) {
-        self.loadAccountInfoBlock(self.userInfo);
-        self.loadAccountInfoBlock = nil;
-    } else {
-    
-        if (self.serviceType == RAMCloudDocumentsServiceTypeDropbox) {
-            
-            [self.restClient loadAccountInfo];
-            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-            
-        } else if (self.serviceType == RAMCloudDocumentsServiceTypeGoogleDrive) {
-            
-            GTMOAuth2Authentication *auth =
-            [GTMOAuth2ViewControllerTouch authForGoogleFromKeychainForName:self.keychainItemName
-                                                                  clientID:self.clientId
-                                                              clientSecret:self.secret];
-            self.userInfo = auth.userEmail;
-            self.loadAccountInfoBlock(self.userInfo);
-            self.loadAccountInfoBlock = nil;
-        }
+}
+
+- (void)dropboxLoadAccountInfo:(LoadAccountInfoCallback)completionBlock
+{
+    self.callback = completionBlock;
+	[self.restClient loadAccountInfo];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+}
+
+#pragma mark Load Documents
+
+- (void)loadDocuments:(NSString *)path completion:(void (^)(NSArray *documents, NSError *error))completion; 
+{
+    if (self.serviceType == RAMCloudDocumentsServiceTypeDropbox) {
+        [self dropboxLoadMetadata:path completionBlock:^(DBMetadata *metadata, NSError *error) {
+            NSMutableArray *documents = [[NSMutableArray alloc] init];
+            if (!error) {
+                for (DBMetadata *child in metadata.contents) {
+                    RAMCloudDocument *document = [[RAMCloudDocument alloc] init];
+                    document.title = [child.path lastPathComponent];
+                    document.isDirectory = child.isDirectory;
+                    document.path = child.path;
+                    [documents addObject:document];
+                }
+            }
+            completion(documents, error);
+        }];
     }
+}
+
+- (void)dropboxLoadMetadata:(NSString*)path completionBlock:(LoadMetadataCallback)completionBlock
+{
+    self.callback = completionBlock;
+    [self.restClient loadMetadata:path];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 }
 
 #pragma mark DBRestClientDelegate
@@ -172,21 +201,32 @@ typedef enum {
 - (void)restClient:(DBRestClient*)client loadedAccountInfo:(DBAccountInfo*)info
 {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-    self.userInfo = info.displayName;
-    if (self.loadAccountInfoBlock) {
-        self.loadAccountInfoBlock(self.userInfo);
-        self.loadAccountInfoBlock = nil;
-    }
+    LoadAccountInfoCallback handler = self.callback;
+    handler(info, nil);
 }
 
 - (void)restClient:(DBRestClient*)client loadAccountInfoFailedWithError:(NSError*)error
 {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-    if (self.loadAccountInfoBlock) {
-        self.loadAccountInfoBlock([error localizedDescription]);
-        self.loadAccountInfoBlock = nil;
-    }
+    LoadAccountInfoCallback handler = self.callback;
+    handler(nil, error);
 }
+
+- (void)restClient:(DBRestClient*)client loadedMetadata:(DBMetadata*)metadata
+{
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    LoadMetadataCallback handler = self.callback;
+    handler(metadata,nil);
+}
+
+- (void)restClient:(DBRestClient*)client loadMetadataFailedWithError:(NSError*)error
+{
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    LoadMetadataCallback handler = self.callback;
+    handler(nil,error);
+}
+
+
 
 
 @end

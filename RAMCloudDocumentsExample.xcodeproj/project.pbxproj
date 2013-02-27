@@ -30,6 +30,7 @@
 		5B9C609116D853E9005A0E8C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9C609016D853E9005A0E8C /* QuartzCore.framework */; };
 		5BE5C43416DBC4D100CE41E9 /* RAMOAuth2ViewControllerTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE5C43216DBC4D100CE41E9 /* RAMOAuth2ViewControllerTouch.m */; };
 		5BE5C43516DBC4D100CE41E9 /* RAMOAuth2ViewControllerTouch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BE5C43316DBC4D100CE41E9 /* RAMOAuth2ViewControllerTouch.xib */; };
+		5BF97B0116DD63F80086D2D4 /* RAMCloudDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF97B0016DD63F80086D2D4 /* RAMCloudDocument.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,8 @@
 		5BE5C43116DBC4D100CE41E9 /* RAMOAuth2ViewControllerTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RAMOAuth2ViewControllerTouch.h; path = RAMCloudDocuments/RAMOAuth2ViewControllerTouch.h; sourceTree = "<group>"; };
 		5BE5C43216DBC4D100CE41E9 /* RAMOAuth2ViewControllerTouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RAMOAuth2ViewControllerTouch.m; path = RAMCloudDocuments/RAMOAuth2ViewControllerTouch.m; sourceTree = "<group>"; };
 		5BE5C43316DBC4D100CE41E9 /* RAMOAuth2ViewControllerTouch.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RAMOAuth2ViewControllerTouch.xib; path = RAMCloudDocuments/RAMOAuth2ViewControllerTouch.xib; sourceTree = "<group>"; };
+		5BF97AFF16DD63F80086D2D4 /* RAMCloudDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RAMCloudDocument.h; path = RAMCloudDocuments/RAMCloudDocument.h; sourceTree = "<group>"; };
+		5BF97B0016DD63F80086D2D4 /* RAMCloudDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RAMCloudDocument.m; path = RAMCloudDocuments/RAMCloudDocument.m; sourceTree = "<group>"; };
 		7122029A09D54CBD9CE7032A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5216C293AFC4B30A3147A14 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -199,6 +202,8 @@
 				5BE5C43116DBC4D100CE41E9 /* RAMOAuth2ViewControllerTouch.h */,
 				5BE5C43216DBC4D100CE41E9 /* RAMOAuth2ViewControllerTouch.m */,
 				5BE5C43316DBC4D100CE41E9 /* RAMOAuth2ViewControllerTouch.xib */,
+				5BF97AFF16DD63F80086D2D4 /* RAMCloudDocument.h */,
+				5BF97B0016DD63F80086D2D4 /* RAMCloudDocument.m */,
 			);
 			name = RAMCloudDocuments;
 			sourceTree = "<group>";
@@ -351,6 +356,7 @@
 				5B9C606916D7FABA005A0E8C /* RAMCloudDocumentsExampleViewController.m in Sources */,
 				5B9C608916D7FE3C005A0E8C /* RAMCloudDocumentsSession.m in Sources */,
 				5BE5C43416DBC4D100CE41E9 /* RAMOAuth2ViewControllerTouch.m in Sources */,
+				5BF97B0116DD63F80086D2D4 /* RAMCloudDocument.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

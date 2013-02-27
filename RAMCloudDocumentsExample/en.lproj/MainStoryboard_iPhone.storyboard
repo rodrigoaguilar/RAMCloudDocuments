@@ -5,34 +5,85 @@
     </dependencies>
     <scenes>
         <!--Cloud Documents Example View Controller - Files-->
-        <scene sceneID="5">
+        <scene sceneID="z4A-VJ-zGs">
             <objects>
-                <viewController id="2" customClass="RAMCloudDocumentsExampleViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="3">
+                <tableViewController id="pmn-43-Ugt" customClass="RAMCloudDocumentsExampleViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="IeJ-MF-H3p">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Files" id="fBg-Gm-VJs">
-                        <barButtonItem key="leftBarButtonItem" title="Account" id="5xn-yW-lhI">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cloud Document" id="wly-tY-Qxu">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <segue destination="N0m-Tm-aJp" kind="push" identifier="Push Directory" id="fan-U3-xRR"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="pmn-43-Ugt" id="ZL2-D9-8KZ"/>
+                            <outlet property="delegate" destination="pmn-43-Ugt" id="mma-PG-p77"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Files" id="1Wg-9Q-GxE">
+                        <barButtonItem key="leftBarButtonItem" title="Account" id="v79-fj-Rfp">
                             <connections>
-                                <action selector="accountButtonTapped:" destination="2" id="xcI-0y-RTB"/>
+                                <action selector="accountButtonTapped:" destination="pmn-43-Ugt" id="7ep-fL-pQZ"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Sign In" id="AML-RL-HHT">
+                        <barButtonItem key="rightBarButtonItem" title="Sign In" id="2v9-lZ-ufK">
                             <connections>
-                                <action selector="authButtonTapped:" destination="2" id="wog-6z-hAn"/>
+                                <action selector="authButtonTapped:" destination="pmn-43-Ugt" id="JxQ-nA-aGW"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="accountInfoButton" destination="5xn-yW-lhI" id="81D-Do-SRy"/>
-                        <outlet property="authButton" destination="AML-RL-HHT" id="6aa-WK-FvR"/>
+                        <outlet property="accountInfoButton" destination="v79-fj-Rfp" id="Nxa-CC-6F4"/>
+                        <outlet property="authButton" destination="2v9-lZ-ufK" id="BGg-rG-jps"/>
                     </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hyw-lP-S6W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="736" y="128"/>
+            <point key="canvasLocation" x="630" y="103"/>
+        </scene>
+        <!--Cloud Documents Example View Controller-->
+        <scene sceneID="ayC-VS-Aaq">
+            <objects>
+                <tableViewController id="N0m-Tm-aJp" customClass="RAMCloudDocumentsExampleViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="drD-rf-e6g">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cloud Document" id="0P2-aN-EcU">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <segue destination="N0m-Tm-aJp" kind="push" identifier="Push Directory" id="euR-DP-IrK"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="N0m-Tm-aJp" id="D4F-0q-hKd"/>
+                            <outlet property="delegate" destination="N0m-Tm-aJp" id="kaM-69-Af1"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="c4y-6T-hZQ"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l9p-vQ-Uc1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1084" y="103"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ESR-g1-xFT">
@@ -45,17 +96,34 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="2" kind="relationship" relationship="rootViewController" id="ji4-Ir-IMT"/>
+                        <segue destination="pmn-43-Ugt" kind="relationship" relationship="rootViewController" id="yVa-MO-l61"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n3c-LU-kYu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="294" y="128"/>
+            <point key="canvasLocation" x="112" y="103"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="RAMCloudDocumentsExampleViewController" superclassName="RAMCloudDocumentsTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RAMCloudDocumentsExampleViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="accountButtonTapped:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="action" name="authButtonTapped:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="accountInfoButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="authButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="RAMCloudDocumentsTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RAMCloudDocumentsTableViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="fan-U3-xRR"/>
+    </inferredMetricsTieBreakers>
 </document>

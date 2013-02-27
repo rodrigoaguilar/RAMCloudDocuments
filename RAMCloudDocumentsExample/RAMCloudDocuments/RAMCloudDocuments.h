@@ -10,5 +10,7 @@
 #define RAMCloudDocumentsExample_RAMCloudDocuments_h
 
 #import "RAMCloudDocumentsSession.h"
+#import "RAMCloudDocument.h"
+#import "RAMOAuth2ViewControllerTouch.h"
 
 #endif

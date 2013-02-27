@@ -10,23 +10,12 @@
 #import <DropboxSDK/DropboxSDK.h>
 
 typedef void (^linkFromControllerCompletion)(NSError *error);
-typedef void (^loadAccountInfoCompletion)(NSString *accountInfo);
-
 
 @interface RAMCloudDocumentsSession : NSObject
 
 //For Google Drive
-@property (nonatomic, copy) NSString *keychainItemName;
-@property (nonatomic, copy) NSString *clientId;
-//For Dropbox
-@property (nonatomic, copy) NSString *accessType;
-@property (nonatomic, copy) NSString *key;
-
-@property (nonatomic, copy) NSString *secret;
-
-//Google Drive designated initializer
 - (id)initWithKeyChainItem:(NSString *)keychainItemName clientId:(NSString *)clientId clientSecret:(NSString *)secret;
-//Dropbox designated initializer
+//For Dropbox 
 - (id)initWithAppKey:(NSString *)key appSecret:(NSString *)secret root:(NSString *)accessType;
 
 - (BOOL)isLinked; // Session must be linked before creating any client objects
@@ -36,6 +25,8 @@ typedef void (^loadAccountInfoCompletion)(NSString *accountInfo);
 
 - (BOOL)handleOpenURL:(NSURL *)url;
 
-- (void)loadAccountInfoWithCompletion:(loadAccountInfoCompletion)completion;
+- (void)loadAccountInfo:(void (^)(NSString *accountInfo, NSError *error))completion;
+
+- (void)loadDocuments:(NSString *)path completion:(void (^)(NSArray *documents, NSError *error))completion; // Returns array with RAMCloudDocuments
 
 @end
