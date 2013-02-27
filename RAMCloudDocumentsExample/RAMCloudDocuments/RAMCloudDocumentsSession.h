@@ -34,5 +34,6 @@ typedef void (^linkFromControllerCompletion)(NSError *error);
 - (void)loadDocuments:(NSString *)path completion:(void (^)(NSArray *documents, NSError *error))completion; // Returns array with RAMCloudDocuments
 
 - (void)loadThumbnailForDocument:(RAMCloudDocument *)document completion:(void (^)(RAMCloudDocument *newDocument))completion;
+- (void)loadDocument:(RAMCloudDocument *)document completion:(void (^)(RAMCloudDocument *newDocument))completion;
 
 @end

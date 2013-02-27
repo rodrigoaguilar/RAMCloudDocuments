@@ -12,6 +12,7 @@
 
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *path;
+@property (nonatomic, copy) NSString *localPath;
 @property (nonatomic, strong) UIImage *thumbnail;
 @property (nonatomic) BOOL thumbnailExists;
 @property (nonatomic) BOOL isDirectory;

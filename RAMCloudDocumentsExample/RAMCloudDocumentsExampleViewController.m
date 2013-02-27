@@ -8,7 +8,7 @@
 
 #import "RAMCloudDocumentsExampleViewController.h"
 #import "RAMCloudDocuments.h"
-
+#import "ImageViewController.h"
 
 @interface RAMCloudDocumentsExampleViewController ()
 
@@ -50,7 +50,9 @@
 {
     [super viewDidLoad];
     
-    self.cloudService = @"Dropbox";
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cloud Document"];
+    
+    self.cloudService = @"Google Drive";
     
     if (!_path) {
         self.path = @"/";
@@ -152,27 +154,12 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    int count = [self.documents count];
-    
-    if (count == 0) {
-        return 1;
-    }
-    return count;
+    return [self.documents count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cloud Document" forIndexPath:indexPath];
-    
-    int nodeCount = [self.documents count];
-	
-	if (nodeCount == 0 && indexPath.row == 0)
-	{
-		cell.textLabel.text = @"Loading…";
-		
-		return cell;
-    }
-
     
     RAMCloudDocument *document = [self documentForRow:indexPath.row];
     
@@ -189,11 +176,36 @@
                 [self loadThumbnailForDocument:document atIndexPath:indexPath];
             }
             cell.imageView.image = nil;
+            cell.accessoryType = UITableViewCellAccessoryNone;
         }
     }
     
     return cell;
 }
+
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    RAMCloudDocument *document = [self documentForRow:indexPath.row];
+    if (!document.isDirectory) {
+        [self.cloudStorageSession loadDocument:document completion:^(RAMCloudDocument *newDocument) {
+            [self.documents removeObjectAtIndex:indexPath.row];
+            [self.documents insertObject:newDocument atIndex:indexPath.row];
+            [self performSegueWithIdentifier:@"Show Image" sender:document];
+        }];
+    } else {
+
+        RAMCloudDocumentsExampleViewController *directory = [self.storyboard instantiateViewControllerWithIdentifier:@"FilesViewController"];
+        directory.path = document.path;
+        directory.title = document.title;
+        [self.navigationController pushViewController:directory animated:YES];
+
+        
+    }
+}
+
+
 
 #pragma mark -
 #pragma mark Deferred image loading (UIScrollViewDelegate)
@@ -212,20 +224,15 @@
     [self loadThumbsForOnscreenRows];
 }
 
-
-#pragma mark Segue
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([sender isKindOfClass:[UITableViewCell class]]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-        if (indexPath) {
-            if ([segue.identifier isEqualToString:@"Push Directory"]) {
-                if ([segue.destinationViewController respondsToSelector:@selector(setPath:)]) {
-                    RAMCloudDocument *document = [self documentForRow:indexPath.row];
-                    [segue.destinationViewController performSelector:@selector(setPath:) withObject:document.path];
-                    [segue.destinationViewController setTitle:document.title];
-                }
+    if ([sender isKindOfClass:[RAMCloudDocument class]]) {
+        RAMCloudDocument *document = (RAMCloudDocument *)sender;
+        if ([segue.destinationViewController respondsToSelector:@selector(setImageURL:)]) {
+            if (document.localPath) {
+                NSURL *url = [NSURL fileURLWithPath:document.localPath];
+                [segue.destinationViewController performSelector:@selector(setImageURL:) withObject:url];
+                [segue.destinationViewController setTitle:document.title];
             }
         }
     }
