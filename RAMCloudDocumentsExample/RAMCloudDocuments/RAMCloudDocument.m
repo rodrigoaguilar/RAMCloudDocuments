@@ -12,7 +12,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"title: %@, thumb: %@", self.title, self.thumbnail];
+    return [NSString stringWithFormat:@"title: %@, thumb: %@, path: %@", self.title, self.thumbnail, self.path];
 }
 
 @end

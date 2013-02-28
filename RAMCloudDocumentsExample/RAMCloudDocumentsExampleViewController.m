@@ -50,9 +50,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cloud Document"];
-    
+        
     self.cloudService = @"Google Drive";
     
     if (!_path) {
@@ -165,6 +163,8 @@
     
     RAMCloudDocument *document = [self documentForRow:indexPath.row];
     
+    cell.imageView.image = nil;
+    cell.accessoryType = UITableViewCellAccessoryNone;
     if (document) {
         cell.textLabel.text = document.title;
         if (document.isDirectory) {
@@ -177,10 +177,10 @@
             if (!self.tableView.dragging && !self.tableView.decelerating) {
                 [self loadThumbnailForDocument:document atIndexPath:indexPath];
             }
-            cell.imageView.image = nil;
-            cell.accessoryType = UITableViewCellAccessoryNone;
         }
     }
+    
+    cell.textLabel.font = [UIFont boldSystemFontOfSize:14];
     
     return cell;
 }
@@ -202,12 +202,8 @@
         directory.path = document.path;
         directory.title = document.title;
         [self.navigationController pushViewController:directory animated:YES];
-
-        
     }
 }
-
-
 
 #pragma mark -
 #pragma mark Deferred image loading (UIScrollViewDelegate)

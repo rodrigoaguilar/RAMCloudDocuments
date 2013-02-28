@@ -12,6 +12,10 @@
 #import "MFCache.h"
 #import "AFImageRequestOperation.h"
 
+#define kGOOGLE_SHEET_MIME_TYPE @"application/vnd.google-apps.spreadsheet"
+#define kGOOGLE_DOC_MIME_TYPE @"application/vnd.google-apps.document"
+#define kGOOGLE_FOLDER_MIME_TYPE @"application/vnd.google-apps.folder"
+
 typedef enum {
     RAMCloudDocumentsServiceTypeGoogleDrive,
     RAMCloudDocumentsServiceTypeDropbox
@@ -137,6 +141,7 @@ typedef void (^LoadFileCallback)(NSString*, NSError*);
     if (rootController) {
         if (self.serviceType == RAMCloudDocumentsServiceTypeGoogleDrive) {
             
+            __weak RAMCloudDocumentsSession *weakSelf = self;
             RAMOAuth2ViewControllerTouch *authViewController =
             [[RAMOAuth2ViewControllerTouch alloc] initWithScope:kGTLAuthScopeDrive
                                                        clientID:self.clientId
@@ -144,8 +149,8 @@ typedef void (^LoadFileCallback)(NSString*, NSError*);
                                                keychainItemName:self.keychainItemName
                                               completionHandler:^(GTMOAuth2ViewControllerTouch *viewController, GTMOAuth2Authentication *auth, NSError *error) {
                                                   if (!error) {
-                                                       NSLog(@"App linked successfully!");
-                                                      self.driveService.authorizer = auth;
+                                                      NSLog(@"App linked successfully!");
+                                                      weakSelf.driveService.authorizer = auth;
                                                   }
                                                   if (completion) {
                                                       completion(error);
@@ -220,37 +225,53 @@ typedef void (^LoadFileCallback)(NSString*, NSError*);
             }];
         } else if (self.serviceType == RAMCloudDocumentsServiceTypeGoogleDrive) {
             
+            if ([path isEqualToString:@"/"]) {
+                path = @"root";
+            }
             [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-
+            
             GTLQueryDrive *query = [GTLQueryDrive queryForFilesList];
             query.maxResults = 1000;
-            query.q = @"'root' in parents and trashed=false";            
+            query.q = [NSString stringWithFormat:@"'%@' in parents and trashed=false", path];
             [self.driveService executeQuery:query completionHandler:^(GTLServiceTicket *ticket,
                                                                       GTLDriveFileList *files,
                                                                       NSError *error) {
                 [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
                 if (!error) {
                     for (GTLDriveFile *file in files) {
-                        RAMCloudDocument *document = [[RAMCloudDocument alloc] init];
-                        document.title = file.title;
-                        if (file.downloadUrl) {
-                            document.path = file.downloadUrl;
-                        }
-                        if ([file.mimeType isEqualToString:@"application/vnd.google-apps.folder"]) {
-                            document.isDirectory = YES;
-                            document.path = file.identifier;
-                        }
-                        if ([file.mimeType hasPrefix:@"image"]) {
-                            document.thumbnailExists = YES;
-                            document.thumbnailLink = file.thumbnailLink;
-                        }
-                        [documents addObject:document];
+                        [documents addObject:[self documentForGoogleDriveFile:file]];
                     }
                 }
                 completion(documents, error);
             }];
         }
     }
+}
+
+- (RAMCloudDocument *)documentForGoogleDriveFile:(GTLDriveFile *)file
+{
+    RAMCloudDocument *document = [[RAMCloudDocument alloc] init];
+    document.title = file.title;
+    if ([file.mimeType isEqualToString:kGOOGLE_SHEET_MIME_TYPE]) {
+        document.title = [NSString stringWithFormat:@"%@.gsheet", document.title];
+    }
+    
+    if ([file.mimeType isEqualToString:kGOOGLE_DOC_MIME_TYPE]) {
+        document.title = [NSString stringWithFormat:@"%@.gdoc", document.title];
+    }
+    
+    if (file.downloadUrl) {
+        document.path = file.downloadUrl;
+    }
+    if ([file.mimeType isEqualToString:kGOOGLE_FOLDER_MIME_TYPE]) {
+        document.isDirectory = YES;
+        document.path = file.identifier;
+    }
+    if ([file.mimeType hasPrefix:@"image"]) {
+        document.thumbnailExists = YES;
+        document.thumbnailLink = file.thumbnailLink;
+    }
+    return document;
 }
 
 - (void)dropboxLoadMetadata:(NSString*)path completionBlock:(LoadMetadataCallback)completionBlock
@@ -274,6 +295,7 @@ typedef void (^LoadFileCallback)(NSString*, NSError*);
                 completion(document);
             } else {
                 if (self.serviceType == RAMCloudDocumentsServiceTypeDropbox) {
+                    thumbKey =  [NSString stringWithFormat:@"dropbox_%@", thumbKey];
                     NSString *destinationPath = [NSTemporaryDirectory() stringByAppendingPathComponent:thumbKey];
                     [self dropboxLoadThumbnail:document.path ofSize:@"m" intoPath:destinationPath completionBlock:^(NSError *error) {
                         if (!error) {
@@ -283,6 +305,7 @@ typedef void (^LoadFileCallback)(NSString*, NSError*);
                         completion(document);
                     }];
                 } else if (self.serviceType == RAMCloudDocumentsServiceTypeGoogleDrive) {
+                    thumbKey =  [NSString stringWithFormat:@"googleDrive_%@", thumbKey];
                     NSURLRequest *theRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:document.thumbnailLink]];
                     AFImageRequestOperation *operation = [AFImageRequestOperation imageRequestOperationWithRequest:theRequest success:^(UIImage *image) {
                         if (image) {
@@ -310,7 +333,14 @@ typedef void (^LoadFileCallback)(NSString*, NSError*);
 - (void)loadDocument:(RAMCloudDocument *)document completion:(void (^)(RAMCloudDocument *newDocument))completion
 {
     if (document) {
-        NSString *destinationPath = [NSTemporaryDirectory() stringByAppendingPathComponent:document.title];
+        
+        NSString *destinationPath;
+        if (self.serviceType == RAMCloudDocumentsServiceTypeDropbox) {
+            destinationPath = [NSTemporaryDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"dropbox_%@",document.title]];
+        } else if (self.serviceType == RAMCloudDocumentsServiceTypeGoogleDrive) {
+            destinationPath = [NSTemporaryDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"googleDrive_%@",document.title]];
+        }
+        
         if ([[NSFileManager defaultManager] fileExistsAtPath:destinationPath]) {
             document.localPath = destinationPath;
             completion(document);
@@ -319,6 +349,19 @@ typedef void (^LoadFileCallback)(NSString*, NSError*);
                 [self dropboxLoadFile:document.path intoPath:destinationPath completionBlock:^(NSString *destPath, NSError *error) {
                     if (!error) {
                         document.localPath = destPath;
+                    }
+                    completion(document);
+                }];
+            } else if (self.serviceType == RAMCloudDocumentsServiceTypeGoogleDrive) {
+                [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+
+                GTMHTTPFetcher *fetcher = [self.driveService.fetcherService fetcherWithURLString:document.path];
+                fetcher.downloadPath = destinationPath;
+                
+                [fetcher beginFetchWithCompletionHandler:^(NSData *data, NSError *error) {
+                    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+                    if (!error) {
+                        document.localPath = destinationPath;
                     }
                     completion(document);
                 }];
