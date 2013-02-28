@@ -9,6 +9,7 @@
 #import "RAMCloudDocumentsExampleViewController.h"
 #import "RAMCloudDocuments.h"
 #import "ImageViewController.h"
+#import "MFCache.h"
 
 @interface RAMCloudDocumentsExampleViewController ()
 
@@ -96,6 +97,7 @@
         
     } else { //Sign off
         [self.cloudStorageSession unlink];
+        [MFCache flushAll];
         [self updateUI];
     }
 }

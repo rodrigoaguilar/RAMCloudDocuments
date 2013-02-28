@@ -10,6 +10,7 @@
 #import "RAMOAuth2ViewControllerTouch.h"
 #import "GTLDrive.h"
 #import "MFCache.h"
+#import "AFImageRequestOperation.h"
 
 typedef enum {
     RAMCloudDocumentsServiceTypeGoogleDrive,
@@ -26,6 +27,8 @@ typedef void (^LoadFileCallback)(NSString*, NSError*);
 @property (nonatomic) RAMCloudDocumentsServiceType serviceType;
 @property (nonatomic, strong) DBRestClient *restClient;
 @property(nonatomic, copy) id callback;
+
+@property (weak, readonly) GTLServiceDrive *driveService;
 
 //For Google Drive
 @property (nonatomic, copy) NSString *keychainItemName;
@@ -47,6 +50,24 @@ typedef void (^LoadFileCallback)(NSString*, NSError*);
         _restClient.delegate = self;
     }
     return _restClient;
+}
+
+- (GTLServiceDrive *)driveService
+{
+    static GTLServiceDrive *service = nil;
+    
+    if (!service) {
+        service = [[GTLServiceDrive alloc] init];
+        
+        // Have the service object set tickets to fetch consecutive pages
+        // of the feed so we do not need to manually fetch them.
+        service.shouldFetchNextPages = YES;
+        
+        // Have the service object set tickets to retry temporary error conditions
+        // automatically.
+        service.retryEnabled = YES;
+    }
+    return service;
 }
 
 - (id)initWithKeyChainItem:(NSString *)keychainItemName clientId:(NSString *)clientId clientSecret:(NSString *)secret
@@ -88,8 +109,12 @@ typedef void (^LoadFileCallback)(NSString*, NSError*);
         GTMOAuth2Authentication *auth =
         [GTMOAuth2ViewControllerTouch authForGoogleFromKeychainForName:self.keychainItemName
                                                               clientID:self.clientId
-                                                          clientSecret:self.secret];
-        return  [auth canAuthorize];
+                                                          clientSecret:self.secret];        
+        if ([auth canAuthorize]) {
+            self.driveService.authorizer = auth;
+            return YES;
+        }
+        return NO;
         
     } else if (self.serviceType == RAMCloudDocumentsServiceTypeDropbox) {
         return  [[DBSession sharedSession] isLinked];
@@ -120,6 +145,7 @@ typedef void (^LoadFileCallback)(NSString*, NSError*);
                                               completionHandler:^(GTMOAuth2ViewControllerTouch *viewController, GTMOAuth2Authentication *auth, NSError *error) {
                                                   if (!error) {
                                                        NSLog(@"App linked successfully!");
+                                                      self.driveService.authorizer = auth;
                                                   }
                                                   if (completion) {
                                                       completion(error);
@@ -177,9 +203,9 @@ typedef void (^LoadFileCallback)(NSString*, NSError*);
 - (void)loadDocuments:(NSString *)path completion:(void (^)(NSArray *documents, NSError *error))completion; 
 {
     if (path && completion) {
+        NSMutableArray *documents = [[NSMutableArray alloc] init];
         if (self.serviceType == RAMCloudDocumentsServiceTypeDropbox) {
             [self dropboxLoadMetadata:path completionBlock:^(DBMetadata *metadata, NSError *error) {
-                NSMutableArray *documents = [[NSMutableArray alloc] init];
                 if (!error) {
                     for (DBMetadata *child in metadata.contents) {
                         RAMCloudDocument *document = [[RAMCloudDocument alloc] init];
@@ -192,7 +218,38 @@ typedef void (^LoadFileCallback)(NSString*, NSError*);
                 }
                 completion(documents, error);
             }];
-        } 
+        } else if (self.serviceType == RAMCloudDocumentsServiceTypeGoogleDrive) {
+            
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+
+            GTLQueryDrive *query = [GTLQueryDrive queryForFilesList];
+            query.maxResults = 1000;
+            query.q = @"'root' in parents and trashed=false";            
+            [self.driveService executeQuery:query completionHandler:^(GTLServiceTicket *ticket,
+                                                                      GTLDriveFileList *files,
+                                                                      NSError *error) {
+                [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+                if (!error) {
+                    for (GTLDriveFile *file in files) {
+                        RAMCloudDocument *document = [[RAMCloudDocument alloc] init];
+                        document.title = file.title;
+                        if (file.downloadUrl) {
+                            document.path = file.downloadUrl;
+                        }
+                        if ([file.mimeType isEqualToString:@"application/vnd.google-apps.folder"]) {
+                            document.isDirectory = YES;
+                            document.path = file.identifier;
+                        }
+                        if ([file.mimeType hasPrefix:@"image"]) {
+                            document.thumbnailExists = YES;
+                            document.thumbnailLink = file.thumbnailLink;
+                        }
+                        [documents addObject:document];
+                    }
+                }
+                completion(documents, error);
+            }];
+        }
     }
 }
 
@@ -225,6 +282,16 @@ typedef void (^LoadFileCallback)(NSString*, NSError*);
                         }
                         completion(document);
                     }];
+                } else if (self.serviceType == RAMCloudDocumentsServiceTypeGoogleDrive) {
+                    NSURLRequest *theRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:document.thumbnailLink]];
+                    AFImageRequestOperation *operation = [AFImageRequestOperation imageRequestOperationWithRequest:theRequest success:^(UIImage *image) {
+                        if (image) {
+                            document.thumbnail = image;
+                            [MFCache setValue:document.thumbnail forKey:thumbKey expiration:kCACHE_EXPIRATION_TIME];
+                        }
+                        completion(document);
+                    }];
+                    [operation start];
                 }
             }
         }
