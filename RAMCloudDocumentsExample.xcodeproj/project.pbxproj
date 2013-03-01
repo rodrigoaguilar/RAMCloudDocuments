@@ -510,10 +510,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E5216C293AFC4B30A3147A14 /* Pods.xcconfig */;
 			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RAMCloudDocumentsExample/RAMCloudDocumentsExample-Prefix.pch";
 				INFOPLIST_FILE = "RAMCloudDocumentsExample/RAMCloudDocumentsExample-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -522,11 +524,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E5216C293AFC4B30A3147A14 /* Pods.xcconfig */;
 			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RAMCloudDocumentsExample/RAMCloudDocumentsExample-Prefix.pch";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "RAMCloudDocumentsExample/RAMCloudDocumentsExample-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
